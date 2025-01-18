@@ -18,13 +18,16 @@ $password = $_POST['password'] ;
  $valid_pwd ="123456";
 
 if( $name == $valid_name && $email == $valid_email && $password == $valid_pwd){
-   if(!isset($_SESSION['user_data'])){
+   
     
-     $_SESSION['user_data'] = ['name' => $name,'email'=> $email,'password'=> $valid_pwd ];
+     $_SESSION['userdata'] = ['name' => $name,'email'=> $email,'password'=> $valid_pwd ];
+    $_SESSION['visit'] = 1 ;
+    $_SESSION['first_visit'] = date('y-m-d h:i:s');
    
      header('location:dashboard.php');
    exit();
  }else{
+
      echo "session isn't set";
  }
 
@@ -32,12 +35,8 @@ if( $name == $valid_name && $email == $valid_email && $password == $valid_pwd){
 
 
  //var_dump($_POST);
- }else{
-
-echo "invalid data";
-
  }
-}
+
 
 ?>
 
@@ -72,7 +71,10 @@ echo "invalid data";
                     </div>
                     <div class="mb-3 form-group">
                         <input type="submit" value="register" id="" class="btn btn-primary">
-                        <p>if you have an account >> <a href="login.php">login </a></p>
+                    </div>
+                    <div class="mb-3 form-control">
+                           
+                           <p>if you have an account >> <a href="login.php">login </a></p>
                     </div>
                 </div>
             </form>
