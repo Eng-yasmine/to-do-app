@@ -1,6 +1,6 @@
 <?php
 if(session_status()==PHP_SESSION_NONE)session_start();
-
+/*
 # store a vailable product.....
 
 $products =[
@@ -48,6 +48,74 @@ if(isset($_POST['add_to_cart'])){
 
     header('location:displaycart.php');
 }
+*/
+
+
+$products = [
+['id' => 1 , 'name' => 'product1' , 'price' => 1400 , 'quantity' => 1] ,
+['id' => 2 ,'name' => 'product2' , 'price' => 950 , 'quantity' => 2] ,
+['id' => 3 ,'name' => 'product3' , 'price' => 200 , 'quantity' => 1] ,
+
+
+
+]
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<table border='1'>
+<tr>
+<th>product id</th>
+<th>product name</th>
+<th>product price</th>
+<th>product quantity</th>
+
+</tr>
+<?php foreach($products as $id => $product)   ?>
+<tr>
+<td><?=$product['id'] ;?></td>
+<td><?= $product['name'] ; ?></td>
+<td><?= $product['price'] ; ?></td>
+<td><?= $product['quantity'] ; ?></td>
+<td><a href='?add_to_cart=$id'>add to cart</a></td>
+</tr>
+</table>
+</body>
+
+</html>
+
+<?php
+
+if(isset($_GET['add_to_cart'])){
+
+         $product_id =$_GET['add_to_cart'] ;
+
+         if(isset($products[$product_id])){
+
+            # search in array about product id 
+
+            if(!isset($_SESSION['cart'])){
+                $_SESSION['cart'] = [] ;
+            }
+            $_SESSION['cart'][] =$products[$product_id] ;
+            echo "product  " . $products[$product_id]['name'] ."". "to cart";
+         }
+
+}
+
+
+
+
+
+
+
 
 
 ?>
+
+

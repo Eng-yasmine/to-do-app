@@ -3,7 +3,7 @@ if(session_status()==PHP_SESSION_NONE)session_start();
 
 
 
-
+/*
 $count = count($_SESSION['cart']) ;
  global $total ;
 if(isset($_SESSION['cart']) && $count > 0){
@@ -41,19 +41,40 @@ if(isset($_POST['remove_from_cart'])){
     unset($_SESSION['cart']['remove_index']) ;
 
     $_SESSION['cart'] = array_values($_SESSION['cart']) ;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+}*/
 
 ?>
+# add to cart by table 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php if(isset($_SESSION['cart']) && count($_SESSION['cart'])) :  ?>
+   <?php $total = 0 ?>
+<?php foreach($_SESSION['cart'] as $index => $item) :?>
+
+
+
+
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
