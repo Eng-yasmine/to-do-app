@@ -1,6 +1,9 @@
 <?php
 if(session_status()==PHP_SESSION_NONE)session_start();
 
+
+
+
 $count = count($_SESSION['cart']) ;
  global $total ;
 if(isset($_SESSION['cart']) && $count > 0){

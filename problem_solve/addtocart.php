@@ -18,7 +18,7 @@ foreach( $products as $product ) {
 echo "product id : " .  $product['product_id']."<br>" . "product_name  : " .$product['product_name'] ."<br>". "product price : " . $product['product_price'] ;
     echo "</pre>";
 
-echo '<form action="" method="POST">
+echo '<form action="displaycart.php" method="POST">
  
 <input type="hidden" name="product_id" value="'. $product['product_id'] .'">
 <input type="hidden" name="product_name" value="'. $product['product_name'] .'">
@@ -44,7 +44,9 @@ if(isset($_POST['add_to_cart'])){
     # add product to cart
 
     $_SESSION['cart'][] = ['product_id' => $product_id , 'product_name' => $product_name , 'product_price'=> $product_price ];
-    echo "product addeto cart" . $product_name . "<br>" ;
+    echo "product adde to cart" . $product_name . "<br>" ;
+
+    header('location:displaycart.php');
 }
 
 
