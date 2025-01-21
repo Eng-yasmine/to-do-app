@@ -163,19 +163,18 @@ function divisible($int){
 }
 
 /*
-Create a function that takes three arguments prob, prize, pay and returns true if prob * prize > pay; otherwise return false.
+Create a function that takes three arguments prob, prize,
+ pay and returns true if prob * prize > pay; otherwise return false.
 
 To illustrate:
 
 profitableGamble(0.2, 50, 9)
 ... should yield true, since the net profit is 1 (0.2 * 50 - 9), and 1 > 0.
 */
-
-
-
-
-
-
+echo profitableGamble(0.2 , 50 , 9);
+function profitableGamble($prob , $prize , $pay){
+    return $prob * $prize > $pay ;
+}
 
 
 /*
@@ -185,16 +184,13 @@ Examples
 reverse([1, 2, 3, 4]) ➞ [4, 3, 2, 1]
 */
 
-
-
-
-
-
-
-
-
+print_r(reverse([1, 2, 3, 4])) ;
+function reverse($arr){
+   return array_reverse($arr);
+}
 /*
-Create a function that takes the number of wins, draws and losses and calculates the number of points a football team has obtained so far.
+Create a function that takes the number of wins,
+ draws and losses and calculates the number of points a football team has obtained so far.
 
 wins get 3 points
 draws get 1 point
@@ -202,90 +198,83 @@ losses get 0 points
 Examples
 footballPoints(3, 4, 2) ➞ 13
 */
+echo footballPoints(9 , 7 , 4 )."points" ."<br>" ;
+function footballPoints($wins , $draws , $losses){
+
+    return ($wins * 3) + ($draws * 1) + ($losses * 0) ;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*Write a function that takes two integers ($hours, $minutes), converts them to seconds, and adds them.
+/*Write a function that takes two integers ($hours, $minutes),
+ converts them to seconds, and adds them.
 
 Examples
 convert(1, 3) ➞ 3780
 */
-
-
-
-
-
-
-
-
-
-
-
+echo convert(1 , 3)  ."seconds" . "<br>";
+function convert($hours , $minutes, $seconds=60){
+return ($hours * $seconds * $seconds) + ($minutes * $seconds);
+}
 /*
 Create a function that takes a string and returns it as an integer.
 
 Examples
 string_int("6") ➞ 6
 */
-
-
-
-
-/*You are counting points for a basketball game, given the amount of 3-pointers scored and 2-pointers scored, find the final points for the team and return that value ([2 -pointers scored, 3-pointers scored]).
+echo string_int("6") ."<br>";
+function string_int($str){
+    return intval($str);
+}
+/*You are counting points for a basketball game,
+ given the amount of 3-pointers scored and 2-pointers scored,
+ find the final points for the team and return that value ([2 -pointers scored, 3-pointers scored]).
 
 Examples
 points(1, 1) ➞ 5
 */
-
-
-
-
+echo points(3 , 1). "<br>";
+function points($twopoints , $thirspoints){
+    return ($twopoints * 2) + ($thirspoints * 3) ;
+}
 
 /*Create a function that takes an array and returns the sum of all numbers in the array.
 
 Examples
 getSumOfItems([2, 7, 4]) ➞ 13
 */
-
-
-
+echo getsumofitem([5 , 7 , 8 , 2]) . "<br>";
+function getsumofitem($arra){
+    return array_sum($arra) ;
+}
 
 /*
-Create a function that takes a base number and an exponent number and returns the calculation.
+Create a function that takes a base number and an exponent number
+ and returns the calculation.
 
 Examples
 calculateExponent(5, 5) ➞ 3125
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
+echo calculateExponent(3 , 2) . "<br>";
+function calculateExponent($basenumber , $exponent){
+    return $basenumber ** $exponent ;
+}
 
 /*
-You hired three programmers and you (hopefully) pay them. Create a function that takes three numbers (the hourly wages of each programmer) and returns the difference between the highest-paid programmer and the lowest-paid.
+You hired three programmers and you (hopefully) pay them.
+ Create a function that takes three numbers (the hourly wages of each programmer) 
+ and returns the difference between the highest-paid programmer and the lowest-paid.
 
 Examples
 programmers(147, 33, 526) ➞ 493
 */
+echo programmers(147 , 33 , 526) . "<br>" ;
+function programmers($wages1 , $wages2 , $wages3){
+    $max = max($wages1 , $wages2 , $wages3);
+    $min = min($wages1 , $wages2 , $wages3); 
+    return $max - $min ;
+}
+
+
 
 
 echo "</pre>";

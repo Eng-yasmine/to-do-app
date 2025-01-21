@@ -1,9 +1,7 @@
 <?php
-if(session_status()==PHP_SESSION_NONE)session_start();
+ if(session_status()==PHP_SESSION_NONE)session_start();
 
 
-
-/*
 $count = count($_SESSION['cart']) ;
  global $total ;
 if(isset($_SESSION['cart']) && $count > 0){
@@ -41,10 +39,10 @@ if(isset($_POST['remove_from_cart'])){
     unset($_SESSION['cart']['remove_index']) ;
 
     $_SESSION['cart'] = array_values($_SESSION['cart']) ;
-}*/
-
+}
 ?>
-# add to cart by table 
+
+ # add to cart by table 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,17 +62,3 @@ if(isset($_POST['remove_from_cart'])){
 </table>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
