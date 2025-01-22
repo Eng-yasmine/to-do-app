@@ -284,16 +284,9 @@ countTrue([true, false, false, true, false]) ➞ 2
 echo counttrue([false , true , false , true , true ]) ."<br>";
 function counttrue($array){
    
-    $i = 0 ;
-    $counter = 0 ;
-    foreach($array as $item){
-        if($item == 1 ){
-           
-           return $counter++ ;
-        }
-      
-    }
-    
+   $return_value = array_filter($array);
+
+   return count($return_value);
 }
 
 /*
@@ -314,5 +307,109 @@ function noOdds($arr) {
 	);
 }
 
+/*
+Create a function that takes in an array of numbers and returns the sum of its cubes.
+
+Examples
+sumOfCubes([1, 5, 9]) ➞ 855
+ Since 1^3 + 5^3 + 9^3 = 1 + 125 + 729 = 855
+
+sumOfCubes([3, 4, 5]) ➞ 216
+*/
+echo sumOfCubes([1, 5, 9]) . "<br>" ;
+function sumOfCubes($no){
+
+    $sum = array_map( function ($value){
+        return pow($value , 3) ;
+    } , $no );
+       return array_sum($sum);
+    }
+
+    /*
+Your friend is trying to write a function that removes all vowels from a string.
+ 
+    */
+echo removeVowels("hello 76ahmed 08989786765765")  . "<br>";
+//echo removeVowels("hello ahmed")  . "<br>";
+   function removeVowels($str) {
+   // return preg_replace("/ahmed/" , "rayan" , $str );
+   return preg_replace("/\d/" , "" , $str) ;
+  }
+
+  /*
+Create a function that takes an array of numbers between 1 and 10 (excluding one number)
+ and returns the missing number.
+
+Examples
+missingNum([1, 2, 3, 4, 6, 7, 8, 9, 10]) ➞ 5
+
+missingNum([7, 2, 3, 6, 5, 9, 1, 4, 8]) ➞ 10
+
+ */
+  echo missingNu([1, 2, 3, 4, 6, 7, 8, 9, 10]) . "<br>";
+
+ function missingNu($NU) {
+    $i = 0;
+     $missed_num = $i;
+     foreach ($NU as $NUMB) {
+         ++$i;
+        if ($NUMB != $i) {
+             $missed_num = $i;
+             break; 
+         }
+     }
+     return $missed_num;
+ }
+
+#other way by built in function (in_array())
+
+echo missingNum([7, 2, 3, 6, 5, 9, 1, 4, 8]) . "<br>";
+
+function missingNum($NUM) {
+    $n = 1;
+    $missed_number = $n;
+    foreach ($NUM as $NUMBER) {
+        $n++;
+        if(!in_array($n , $NUM)) {
+            $missed_number = $n;
+            break; 
+        }
+    }
+    return $missed_number;
+}
+
+/*
+Create a function to extract the name of the subreddit from its URL.
+
+Examples
+subReddit("https://www.reddit.com/r/funny/") ➞ "funny"
+
+*/
+echo subReddit("https://www.reddit.com/r/funny/") . "<br>"; // Output: funny
+function subReddit($url){
+
+   // Use a regular expression to extract the subreddit name
+        preg_match('/\/r\/([^\/]+)\//', $url, $matches);
+        return $matches[1];
+}
+    
+/*Count the amount of ones in the binary representation of an integer.
+ For example, since 12 is 1100 in binary, the return value should be 2.
+Examples
+countOnes(0) ➞ 0
+countOnes(100) ➞ 3
+
+  */ 
+ echo countOnes(100) . "<br>" ;
+ function countOnes($bin){
+    $binary = decbin($bin);
+     return substr_count($binary , 1);
+ }
+    
+    
+
+
 
 echo "</pre>";
+
+?>
