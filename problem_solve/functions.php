@@ -274,7 +274,45 @@ function programmers($wages1 , $wages2 , $wages3){
     return $max - $min ;
 }
 
+/*
+Create a function which returns the number of true values there are in an array.
 
+Examples
+countTrue([true, false, false, true, false]) ➞ 2
+
+*/
+echo counttrue([false , true , false , true , true ]) ."<br>";
+function counttrue($array){
+   
+    $i = 0 ;
+    $counter = 0 ;
+    foreach($array as $item){
+        if($item == 1 ){
+           
+           return $counter++ ;
+        }
+      
+    }
+    
+}
+
+/*
+
+Create a function that takes an array of numbers and returns only the even values.
+
+Examples
+noOdds([1, 2, 3, 4, 5, 6, 7, 8]) ➞ [2, 4, 6, 8]
+
+noOdds([43, 65, 23, 89, 53, 9, 6]) ➞ [6]
+
+*/
+print_r(noOdds([1, 2, 3, 4, 5, 6, 7, 8]))."<br>";
+function noOdds($arr) {
+	return array_filter($arr,function ($number) {
+			return $number % 2 == 0;
+		}
+	);
+}
 
 
 echo "</pre>";
